@@ -8,6 +8,8 @@
 
 @section('content')
     <br>
+    <div class="container">
+        <h2>Lekarze</h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -32,5 +34,5 @@
                 @endforeach
                 </tbody>
             </table>
-
+    </div>
 @endsection('content')

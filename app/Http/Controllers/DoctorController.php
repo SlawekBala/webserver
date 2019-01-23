@@ -6,30 +6,32 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use App\Repositories\UserRepository;
+
 class DoctorController extends Controller
 {
 
-    public function index(){
+    public function index(UserRepository $userRepo){
 
-        $users = User::where('type','doctor')->orderBY('name','asc')->get(); //to samo co SELECT * FROM users WHERE type='doctor'
+        $users = $userRepo->getAllDoctors();
 
         return view('doctors.list',["doctorsList"=>$users,
                                         "footerYear"=> date("Y"),
                                         "title"=> "Moduł lekarzy"]);
     }
 
-    public function show($id){
+    public function show(UserRepository $userRepo, $id){
 
-        $doctor = User::find($id);//find szuka po parametrze
+        $doctor = $userRepo->find($id);//find szuka po parametrze
         return view('doctors.show', ["doctor"=>$doctor,
                                             "footerYear"=>date("Y"),
                                             "title"=> "Moduł lekarzy" ]);
 
     }
 
-    public function create(){
+    public function create(UserRepository $userRepo){
 
-        User::create([          //create tworzy i wysyła do bazy taką tablice
+        $userRepo->create([          //create tworzy i wysyła do bazy taką tablice
             'name'=>'Doctor 3',
             'email' => 'doctor@3.com',
             'password'=>bcrypt('doctor'),
@@ -44,13 +46,11 @@ class DoctorController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit(UserRepository $userRepo, $id){
 
-        $doctor = User::find($id);
+        $doctor = $userRepo->update(["name" => "Test Edycji"], $id);
 
-        $doctor->name = "Test Edycji";
-
-        $doctor->save();    //save zapisuje wszystko co zedytowaliśmy do bazy
+        //$doctor->save();    //save zapisuje wszystko co zedytowaliśmy do bazy
 
         return redirect('doctors');
 

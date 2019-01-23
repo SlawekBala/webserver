@@ -24,6 +24,16 @@ Route::get('doctors/', 'DoctorController@index');
 
 Route::get('doctors/{id}', 'DoctorController@show');
 
+
+
+Route::get('specializations/', 'SpecializationController@index');
+
+
+
+Route::get('visits/', 'VisitController@index');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

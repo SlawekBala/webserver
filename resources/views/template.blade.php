@@ -18,8 +18,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/doctors"><h1>Lekarze</h1> <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ URL::to('doctors') }}"><h1>Lekarze</h1></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ URL::to('specializations') }}"><h1>Specializacje</h1></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ URL::to('visits') }}"><h1>Wizyty</h1></a>
             </li>
         </ul>
     </div>

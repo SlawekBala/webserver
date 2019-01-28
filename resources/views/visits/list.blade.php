@@ -24,8 +24,8 @@
 
         <tr>
             <th scope="row">{{ $visit->id }}</th>
-            <td>{{ $visit->patient_id  }}</td>
-            <td>{{ $visit->doctor_id  }}</td>
+            <td>{{ $visit->patient->name }} ({{ $visit->patient->pesel }})</td>
+            <td>{{ $visit->doctor->name }}</td>
             <td>{{ $visit->date  }}</td>
         </tr>
 

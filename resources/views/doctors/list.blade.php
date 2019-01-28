@@ -14,9 +14,9 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Nazwisko</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
+                    <th scope="col">Telefon</th>
                     <th scope="col">Status</th>
                 </tr>
                 </thead>

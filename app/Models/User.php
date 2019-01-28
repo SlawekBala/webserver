@@ -28,7 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $guarded = [
+    public function doctorsVisits(){
+        return $this->hasMany(Visit::class,'doctor_id');
+    }
 
-    ];
+    public function patientsVisits(){
+        return $this->hasMany(Visit::class,'patient_id');
+    }
 }
